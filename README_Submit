@@ -1,0 +1,265 @@
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Task 1: Match Bounding Boxes
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void matchBoundingBoxes(std::vector<cv::DMatch> &matches, std::map<int, int> &bbBestMatches, DataFrame &prevFrame, DataFrame &currFrame)
+{
+   
+    for(auto preBB: prevFrame.boundingBoxes)
+    {
+        std::map<int, int> idMatches;  // Create the map with (boxID_prev, boxID_curr) we need to see which box has the most of this
+        for(auto curBB : currFrame.boundingBoxes)
+        {
+            //currBox.kptMatches = currFrame.kptMatches;
+            for(auto match: matches)
+            {
+                auto preKeyPoint = prevFrame.keypoints[match.queryIdx];
+                auto curKeyPoint = currFrame.keypoints[match.trainIdx];
+
+                if(preBB.roi.contains(preKeyPoint.pt) && curBB.roi.contains(curKeyPoint.pt))
+                {
+                    if (idMatches.count(curBB.boxID)==0)
+                    {
+                        idMatches[curBB.boxID] =1;
+                    }
+                    else
+                    {
+                        idMatches[curBB.boxID]++;
+                    }           
+                }
+            }
+        }
+
+        int preMax = 0;
+        int curMax = 0;
+        for(auto it = idMatches.begin(); it!=idMatches.end(); ++it)
+        {
+            if(it->second > curMax)
+            {
+                preMax = it->first;
+                curMax = it->second;
+            }
+        }
+        bbBestMatches[preBB.boxID] = preMax;
+    }
+    
+    /*
+    for (auto bb : bbBestMatches)
+    {
+        cout << "fist element : " << bb.first << "; second element : " << bb.second << endl;
+    }
+    */
+    //std::cout<<"prevBoxMatch:" << bbBestMatches[0]<<", currBoxMatch:" <<bbBestMatches[1] <<endl;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Task 2: Compute TTC Lidar with Robust Median Filtering
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void filtOutliersMedian(std::vector<LidarPoint> &inputPoints, std::vector<LidarPoint> &filtPoints)
+{
+    
+    std::vector<double> inputSortX;
+    std::vector<double> inputSortY;
+    
+    for (auto point : inputPoints)
+    {
+        inputSortX.push_back(point.x);
+        inputSortY.push_back(point.y);
+    }
+
+
+    sort(inputSortX.begin(),inputSortX.end());
+    sort(inputSortY.begin(),inputSortY.end());
+    
+
+    int idx = floor(inputPoints.size()/2);
+    int idxLow = ceil(inputPoints.size()*0.25);
+    int idxHigh = ceil(inputPoints.size()*0.75);
+
+    //float medX = inputSortX[idx];
+    float medLowX= inputSortX[idxLow];
+    float medLowY= inputSortY[idxLow];
+    float medHighX = inputSortX[idxHigh];
+    float medHighY = inputSortY[idxHigh];
+    float medRangeX = medHighX - medLowX;
+    float medRangeY = medHighY - medLowY;
+
+    for(auto point : inputPoints)
+    {
+        //if ((point.x > medLowX - 1.5*medRangeX) && (point.x < medHighX + 1.5*medRangeX) && (point.y > medLowY - 1.5*medRangeY) && (point.y < medHighY + 1.5*medRangeY))
+        if ((point.x > medLowX - 1.5*medRangeX) && (point.x < medHighX + 1.5*medRangeX))
+        {
+            filtPoints.push_back(point);
+        }
+    }
+
+}
+
+void computeTTCLidar(std::vector<LidarPoint> &lidarPointsPrev,
+                     std::vector<LidarPoint> &lidarPointsCurr, double frameRate, double &TTC)
+{
+    
+    // Filter LidarPoints:
+    std::vector<LidarPoint> filtLidarPointsPre;
+    filtOutliersMedian(lidarPointsPrev, filtLidarPointsPre);
+    std::vector<LidarPoint> filtLidarPointsCur;
+    filtOutliersMedian(lidarPointsCurr, filtLidarPointsCur);
+
+    // auxiliary variables
+    double dT = 1.0/frameRate;        // time between two measurements in seconds
+    double laneWidth = 4.0; // assumed width of the ego lane
+
+    // find closest distance to Lidar points within ego lane
+    double minXPrev = 1e9, minXCurr = 1e9;
+    //for (auto it = lidarPointsPrev.begin(); it != lidarPointsPrev.end(); ++it)
+    for (auto it = filtLidarPointsPre.begin(); it != filtLidarPointsPre.end(); ++it)
+    {
+        
+        //if (abs(it->y) <= laneWidth / 2.0)
+        { // 3D point within ego lane?
+            minXPrev = minXPrev > it->x ? it->x : minXPrev;
+        }
+    }
+
+    //for (auto it = lidarPointsCurr.begin(); it != lidarPointsCurr.end(); ++it)
+    for (auto it = filtLidarPointsCur.begin(); it != filtLidarPointsCur.end(); ++it)
+    {
+        
+        //if (abs(it->y) <= laneWidth / 2.0)
+        { // 3D point within ego lane?
+            minXCurr = minXCurr > it->x ? it->x : minXCurr;
+        }
+    }
+
+    // compute TTC from both measurements
+    TTC = minXCurr * dT / (minXPrev - minXCurr);
+     
+    /*
+    cout << " " << endl;
+    cout << " TTC Lidar: " << TTC << "minXCurr : " << minXCurr <<  "minXPrev : "<< minXPrev << endl;
+    cout << " " << endl;
+    */
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Task 3: Accociate Keypoint Correspondes with Bounding Boxes
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void clusterKptMatchesWithROI(BoundingBox &boundingBox, std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPoint> &kptsCurr, std::vector<cv::DMatch> &kptMatches)
+{
+    std::vector<cv::DMatch> matches;
+    std::vector<float> euclidDist;
+    
+    for(auto match : kptMatches)
+    {
+        cv::KeyPoint preKeyPoint = kptsPrev[match.queryIdx];
+        cv::KeyPoint curKeyPoint = kptsCurr[match.trainIdx];
+        
+        
+        if(boundingBox.roi.contains(curKeyPoint.pt))
+        {
+            //float distPreCur = sqrt(pow((preKeyPoint.pt.y - curKeyPoint.pt.y),2) + pow((preKeyPoint.pt.x - curKeyPoint.pt.x),2));
+            float distPreCur = cv::norm(curKeyPoint.pt - preKeyPoint.pt);
+            euclidDist.push_back(distPreCur);
+            matches.push_back(match);
+        }
+    }
+    
+    
+    float medianDist, medianDistQ1, medianDistQ3;
+   
+    std::vector<float> euclidDistSort = euclidDist;   
+    std::sort(euclidDistSort.begin(),euclidDistSort.end());
+
+    int idx = floor(euclidDistSort.size()/2);
+    int idxLow = ceil(euclidDistSort.size()*0.25);
+    int idxHigh = ceil(euclidDistSort.size()*0.75);
+    
+    medianDist =euclidDistSort[idx];
+    medianDistQ1 =euclidDistSort[idxLow];
+    medianDistQ3 =euclidDistSort[idxHigh];
+
+    float medianRange = medianDistQ3-medianDistQ1;
+        
+    for(int i = 0; i< euclidDist.size(); ++i)
+    {
+        if((euclidDist[i] > medianDistQ1-1.5*medianRange) && (euclidDist[i] < medianDistQ3 + 1.5*medianRange))
+        {
+            boundingBox.keypoints.push_back(kptsCurr[matches[i].trainIdx]);
+            boundingBox.kptMatches.push_back(matches[i]);
+        }
+    }
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Task 4: Compute TTC Camera
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void computeTTCCamera(std::vector<cv::KeyPoint> &kptsPrev, std::vector<cv::KeyPoint> &kptsCurr, 
+                      std::vector<cv::DMatch> kptMatches, double frameRate, double &TTC, cv::Mat *visImg)
+
+{   
+    // compute distance ratios between all matched keypoints
+    vector<double> distRatios; // stores the distance ratios for all keypoints between curr. and prev. frame
+    for (auto it1 = kptMatches.begin(); it1 != kptMatches.end() - 1; ++it1)
+    { // outer kpt. loop
+
+        // get current keypoint and its matched partner in the prev. frame
+        cv::KeyPoint kpOuterCurr = kptsCurr.at(it1->trainIdx);
+        cv::KeyPoint kpOuterPrev = kptsPrev.at(it1->queryIdx);
+
+        for (auto it2 = kptMatches.begin() + 1; it2 != kptMatches.end(); ++it2)
+        { // inner kpt.-loop
+
+            double minDist = 100.0; // min. required distance
+
+            // get next keypoint and its matched partner in the prev. frame
+            cv::KeyPoint kpInnerCurr = kptsCurr.at(it2->trainIdx);
+            cv::KeyPoint kpInnerPrev = kptsPrev.at(it2->queryIdx);
+
+            // compute distances and distance ratios
+            double distCurr = cv::norm(kpOuterCurr.pt - kpInnerCurr.pt);
+            double distPrev = cv::norm(kpOuterPrev.pt - kpInnerPrev.pt);
+
+            if (distPrev > std::numeric_limits<double>::epsilon() && distCurr >= minDist)
+            { // avoid division by zero
+
+                double distRatio = distCurr / distPrev;
+                distRatios.push_back(distRatio);
+            }
+        } // eof inner loop over all matched kpts
+    }     // eof outer loop over all matched kpts
+
+    // only continue if list of distance ratios is not empty
+    if (distRatios.size() == 0)
+    {
+        TTC = NAN;
+        return;
+    }
+
+    std::sort(distRatios.begin(), distRatios.end());
+    long medIndex = floor(distRatios.size() / 2.0);
+    double medDistRatio = distRatios.size() % 2 == 0 ? (distRatios[medIndex - 1] + distRatios[medIndex]) / 2.0 : distRatios[medIndex]; // compute median dist. ratio to remove outlier influence
+
+    double dT = 1.0 / frameRate;
+    TTC = -dT / (1 - medDistRatio);
+    /*
+    cout << " " << endl;
+    cout << " TTC Camera: " << TTC << endl;
+    cout << " " << endl;
+   */
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Task 5 & 6: Performace Evaluation
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+* The problem in this cas is that we use a constant velocty model.
+So this is not accurate enough, especially if the car to the front of us is breaking (hard).
+
+
+* From midterm pjct we know, that FAST/ BRISK, FAST/ ORB and FAST/ BRIEF are very Fast.
+As we will run FAST/ ORB we see, that it is sometime unstable (I think, because we have to much mismatched KeyPoints)
+So we choose FAST/ BRISK, becuase it seems much more stable.
