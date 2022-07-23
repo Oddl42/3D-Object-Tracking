@@ -258,8 +258,12 @@ Task 5 & 6: Performace Evaluation
 
 * The problem in this cas is that we use a constant velocty model.
 So this is not accurate enough, especially if the car to the front of us is breaking (hard).
+See Picture TTC Lidar (createt with matlab)
 
+* Here i am struggeling.
+Wiht my code, i can' use BRIEF and FREAK Descriptors.
+Also the TTC Camera is equal to all Descriptors, for example it doesn't matter, if i use SHiTomasi or Fast Detector, the time will only change, if if change the Descriptor.
+(As you can see in the txt files)
 
-* From midterm pjct we know, that FAST/ BRISK, FAST/ ORB and FAST/ BRIEF are very Fast.
-As we will run FAST/ ORB we see, that it is sometime unstable (I think, because we have to much mismatched KeyPoints)
-So we choose FAST/ BRISK, becuase it seems much more stable.
+The ORB Descriptor is also unstable (inf Value)
+I asked a Mentor, about this Problem, but, they can't help me.
