@@ -1,0 +1,119 @@
+*****************************************************************************************
+Detector Type = AKAZE and Descriptor Type = BRISK with Selector Type = SEL_KNN
+*****************************************************************************************
+ 
+Display all TTC Times: 
+ Picture : 0   | TTC Lidar : 12.9722   | TTC Camera : 13.2775   | Detector Time : 0.37094   | Descriptor Time : 0.0328054
+ Picture : 1   | TTC Lidar : 12.264   | TTC Camera : 22.3972   | Detector Time : 0.385871   | Descriptor Time : 0.0302337
+ Picture : 2   | TTC Lidar : 13.9161   | TTC Camera : 14.3811   | Detector Time : 0.366984   | Descriptor Time : 0.0295278
+ Picture : 3   | TTC Lidar : 14.8865   | TTC Camera : 16.1216   | Detector Time : 0.370708   | Descriptor Time : 0.0304303
+ Picture : 4   | TTC Lidar : 7.41552   | TTC Camera : 26.0949   | Detector Time : 0.377171   | Descriptor Time : 0.0319554
+ Picture : 5   | TTC Lidar : 12.4213   | TTC Camera : 17.6191   | Detector Time : 0.374282   | Descriptor Time : 0.0304214
+ Picture : 6   | TTC Lidar : 34.3404   | TTC Camera : 19.6355   | Detector Time : 0.361851   | Descriptor Time : 0.0301353
+ Picture : 7   | TTC Lidar : 9.34376   | TTC Camera : 16.5123   | Detector Time : 0.389487   | Descriptor Time : 0.0317758
+ Picture : 8   | TTC Lidar : 18.1318   | TTC Camera : 15.4439   | Detector Time : 0.388343   | Descriptor Time : 0.032619
+ Picture : 9   | TTC Lidar : 18.0318   | TTC Camera : 13.9839   | Detector Time : 0.387255   | Descriptor Time : 0.0310732
+ Picture : 10   | TTC Lidar : 14.9877   | TTC Camera : 12.0678   | Detector Time : 0.379755   | Descriptor Time : 0.0330158
+ Picture : 11   | TTC Lidar : 10.1   | TTC Camera : 11.5788   | Detector Time : 0.365293   | Descriptor Time : 0.0331699
+ Picture : 12   | TTC Lidar : 9.22307   | TTC Camera : 12.3592   | Detector Time : 0.369422   | Descriptor Time : 0.0301258
+ Picture : 13   | TTC Lidar : 10.9678   | TTC Camera : 12.1961   | Detector Time : 0.379546   | Descriptor Time : 0.0313754
+ Picture : 14   | TTC Lidar : 8.09422   | TTC Camera : 12.5792   | Detector Time : 0.375724   | Descriptor Time : 0.0345063
+ Picture : 15   | TTC Lidar : 8.81392   | TTC Camera : 11.4024   | Detector Time : 0.374255   | Descriptor Time : 0.0318083
+ Picture : 16   | TTC Lidar : 10.2926   | TTC Camera : 9.54524   | Detector Time : 0.382073   | Descriptor Time : 0.0322209
+ Picture : 17   | TTC Lidar : 8.52001   | TTC Camera : 11.7254   | Detector Time : 0.371137   | Descriptor Time : 0.0329195
+ 
+ Average Results 
+ 
+Average Detector Time for AKAZE = 376.116ms, for 18 Pictures
+Total Detector Time for AKAZE = 6770.1ms, for 18 Pictures
+ 
+Average Descriptor Time for BRISK = 31.6733ms, for 18 Pictures
+Total Descriptor Time for BRISK = 570.119ms, for 18 Pictures
+ 
+Total Time = 407.79ms
+ 
+Average TTC of Lidar = 13.0401
+Total TTC of Lidar = 234.723
+ 
+Average TTC of Camera = 14.9401
+Total TTC of Camera = 268.921
+
+*****************************************************************************************
+Detector Type = AKAZE and Descriptor Type = ORB with Selector Type = SEL_KNN
+*****************************************************************************************
+ 
+Display all TTC Times: 
+ Picture : 0   | TTC Lidar : 12.9722   | TTC Camera : 19.4626   | Detector Time : 0.00744958   | Descriptor Time : 0.00546721
+ Picture : 1   | TTC Lidar : 12.264   | TTC Camera : 10.7511   | Detector Time : 0.00758194   | Descriptor Time : 0.00547614
+ Picture : 2   | TTC Lidar : 13.9161   | TTC Camera : 16.6755   | Detector Time : 0.0074132   | Descriptor Time : 0.00532782
+ Picture : 3   | TTC Lidar : 14.8865   | TTC Camera : 21.791   | Detector Time : 0.00770312   | Descriptor Time : 0.00525496
+ Picture : 4   | TTC Lidar : 7.41552   | TTC Camera : 39.391   | Detector Time : 0.00718168   | Descriptor Time : 0.00535956
+ Picture : 5   | TTC Lidar : 12.4213   | TTC Camera : 18.4549   | Detector Time : 0.00752178   | Descriptor Time : 0.00524812
+ Picture : 6   | TTC Lidar : 34.3404   | TTC Camera : 173.32   | Detector Time : 0.00726704   | Descriptor Time : 0.00532901
+ Picture : 7   | TTC Lidar : 9.34376   | TTC Camera : 10.9033   | Detector Time : 0.00728334   | Descriptor Time : 0.00484629
+ Picture : 8   | TTC Lidar : 18.1318   | TTC Camera : -inf   | Detector Time : 0.00731271   | Descriptor Time : 0.00502247
+ Picture : 9   | TTC Lidar : 18.0318   | TTC Camera : 34.8393   | Detector Time : 0.00754621   | Descriptor Time : 0.00538827
+ Picture : 10   | TTC Lidar : 14.9877   | TTC Camera : 8.94212   | Detector Time : 0.00734546   | Descriptor Time : 0.00541343
+ Picture : 11   | TTC Lidar : 10.1   | TTC Camera : 47.5656   | Detector Time : 0.00718767   | Descriptor Time : 0.00534712
+ Picture : 12   | TTC Lidar : 9.22307   | TTC Camera : 9.46076   | Detector Time : 0.00764372   | Descriptor Time : 0.0052992
+ Picture : 13   | TTC Lidar : 10.9678   | TTC Camera : 11.4024   | Detector Time : 0.00738936   | Descriptor Time : 0.00526948
+ Picture : 14   | TTC Lidar : 8.09422   | TTC Camera : 13.6463   | Detector Time : 0.0082405   | Descriptor Time : 0.00563771
+ Picture : 15   | TTC Lidar : 8.81392   | TTC Camera : 10.5063   | Detector Time : 0.00798902   | Descriptor Time : 0.00471218
+ Picture : 16   | TTC Lidar : 10.2926   | TTC Camera : 17.9984   | Detector Time : 0.00743483   | Descriptor Time : 0.00489179
+ Picture : 17   | TTC Lidar : 8.52001   | TTC Camera : 31.3538   | Detector Time : 0.00810778   | Descriptor Time : 0.00548941
+ 
+ Average Results 
+ 
+Average Detector Time for AKAZE = 7.53328ms, for 18 Pictures
+Total Detector Time for AKAZE = 135.599ms, for 18 Pictures
+ 
+Average Descriptor Time for ORB = 5.26556ms, for 18 Pictures
+Total Descriptor Time for ORB = 94.7802ms, for 18 Pictures
+ 
+Total Time = 12.7988ms
+ 
+Average TTC of Lidar = 13.0401
+Total TTC of Lidar = 234.723
+ 
+Average TTC of Camera = -inf
+Total TTC of Camera = -inf
+
+*****************************************************************************************
+Detector Type = AKAZE and Descriptor Type = AKAZE with Selector Type = SEL_KNN
+*****************************************************************************************
+ 
+Display all TTC Times: 
+ Picture : 0   | TTC Lidar : 12.9722   | TTC Camera : 12.3168   | Detector Time : 0.0693221   | Descriptor Time : 0.0775287
+ Picture : 1   | TTC Lidar : 12.264   | TTC Camera : 14.3973   | Detector Time : 0.0655018   | Descriptor Time : 0.0762214
+ Picture : 2   | TTC Lidar : 13.9161   | TTC Camera : 13.3458   | Detector Time : 0.0686524   | Descriptor Time : 0.0811206
+ Picture : 3   | TTC Lidar : 14.8865   | TTC Camera : 14.409   | Detector Time : 0.0691332   | Descriptor Time : 0.0799574
+ Picture : 4   | TTC Lidar : 7.41552   | TTC Camera : 15.8694   | Detector Time : 0.0723337   | Descriptor Time : 0.0798553
+ Picture : 5   | TTC Lidar : 12.4213   | TTC Camera : 13.8408   | Detector Time : 0.070579   | Descriptor Time : 0.0803757
+ Picture : 6   | TTC Lidar : 34.3404   | TTC Camera : 15.2979   | Detector Time : 0.06339   | Descriptor Time : 0.0739145
+ Picture : 7   | TTC Lidar : 9.34376   | TTC Camera : 14.3975   | Detector Time : 0.0660748   | Descriptor Time : 0.0731223
+ Picture : 8   | TTC Lidar : 18.1318   | TTC Camera : 14.7335   | Detector Time : 0.0631464   | Descriptor Time : 0.0760039
+ Picture : 9   | TTC Lidar : 18.0318   | TTC Camera : 11.5619   | Detector Time : 0.0650689   | Descriptor Time : 0.0713717
+ Picture : 10   | TTC Lidar : 14.9877   | TTC Camera : 12.1969   | Detector Time : 0.0691058   | Descriptor Time : 0.0822056
+ Picture : 11   | TTC Lidar : 10.1   | TTC Camera : 11.1809   | Detector Time : 0.0641308   | Descriptor Time : 0.0735707
+ Picture : 12   | TTC Lidar : 9.22307   | TTC Camera : 10.789   | Detector Time : 0.0647087   | Descriptor Time : 0.0738325
+ Picture : 13   | TTC Lidar : 10.9678   | TTC Camera : 10.4216   | Detector Time : 0.0660355   | Descriptor Time : 0.078617
+ Picture : 14   | TTC Lidar : 8.09422   | TTC Camera : 10.5751   | Detector Time : 0.0690234   | Descriptor Time : 0.0770111
+ Picture : 15   | TTC Lidar : 8.81392   | TTC Camera : 10.1631   | Detector Time : 0.0702892   | Descriptor Time : 0.0794284
+ Picture : 16   | TTC Lidar : 10.2926   | TTC Camera : 9.46152   | Detector Time : 0.0643607   | Descriptor Time : 0.0746921
+ Picture : 17   | TTC Lidar : 8.52001   | TTC Camera : 9.43762   | Detector Time : 0.0645487   | Descriptor Time : 0.0751692
+ 
+ Average Results 
+ 
+Average Detector Time for AKAZE = 66.9669ms, for 18 Pictures
+Total Detector Time for AKAZE = 1205.41ms, for 18 Pictures
+ 
+Average Descriptor Time for AKAZE = 76.8888ms, for 18 Pictures
+Total Descriptor Time for AKAZE = 1384ms, for 18 Pictures
+ 
+Total Time = 143.856ms
+ 
+Average TTC of Lidar = 13.0401
+Total TTC of Lidar = 234.723
+ 
+Average TTC of Camera = 12.4664
+Total TTC of Camera = 224.396
