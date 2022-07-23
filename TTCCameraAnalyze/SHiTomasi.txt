@@ -1,0 +1,131 @@
+*****************************************************************************************
+Detector Type = SHITOMASI and Descriptor Type = BRISK with Selector Type = SEL_KNN
+*****************************************************************************************
+ 
+Display all TTC Times: 
+ Picture : 0   | TTC Lidar : 12.9722   | TTC Camera : 13.2775   | Detector Time : 0.346788   | Descriptor Time : 0.032752
+ Picture : 1   | TTC Lidar : 12.264   | TTC Camera : 22.3972   | Detector Time : 0.347407   | Descriptor Time : 0.0323391
+ Picture : 2   | TTC Lidar : 13.9161   | TTC Camera : 14.3811   | Detector Time : 0.350061   | Descriptor Time : 0.0320856
+ Picture : 3   | TTC Lidar : 14.8865   | TTC Camera : 16.1216   | Detector Time : 0.342419   | Descriptor Time : 0.0301022
+ Picture : 4   | TTC Lidar : 7.41552   | TTC Camera : 26.0949   | Detector Time : 0.342398   | Descriptor Time : 0.0303302
+ Picture : 5   | TTC Lidar : 12.4213   | TTC Camera : 17.6191   | Detector Time : 0.353501   | Descriptor Time : 0.0313949
+ Picture : 6   | TTC Lidar : 34.3404   | TTC Camera : 19.6355   | Detector Time : 0.345023   | Descriptor Time : 0.0308315
+ Picture : 7   | TTC Lidar : 9.34376   | TTC Camera : 16.5123   | Detector Time : 0.345367   | Descriptor Time : 0.0304498
+ Picture : 8   | TTC Lidar : 18.1318   | TTC Camera : 15.4439   | Detector Time : 0.346108   | Descriptor Time : 0.032067
+ Picture : 9   | TTC Lidar : 18.0318   | TTC Camera : 13.9839   | Detector Time : 0.347898   | Descriptor Time : 0.032622
+ Picture : 10   | TTC Lidar : 14.9877   | TTC Camera : 12.0678   | Detector Time : 0.345472   | Descriptor Time : 0.0337081
+ Picture : 11   | TTC Lidar : 10.1   | TTC Camera : 11.5788   | Detector Time : 0.346233   | Descriptor Time : 0.0314957
+ Picture : 12   | TTC Lidar : 9.22307   | TTC Camera : 12.3592   | Detector Time : 0.350963   | Descriptor Time : 0.0323815
+ Picture : 13   | TTC Lidar : 10.9678   | TTC Camera : 12.1961   | Detector Time : 0.349628   | Descriptor Time : 0.0324874
+ Picture : 14   | TTC Lidar : 8.09422   | TTC Camera : 12.5792   | Detector Time : 0.343495   | Descriptor Time : 0.0332803
+ Picture : 15   | TTC Lidar : 8.81392   | TTC Camera : 11.4024   | Detector Time : 0.345999   | Descriptor Time : 0.0326095
+ Picture : 16   | TTC Lidar : 10.2926   | TTC Camera : 9.54524   | Detector Time : 0.3467   | Descriptor Time : 0.0334062
+ Picture : 17   | TTC Lidar : 8.52001   | TTC Camera : 11.7254   | Detector Time : 0.346357   | Descriptor Time : 0.0343079
+ 
+ Average Results 
+ 
+Average Detector Time for SHITOMASI = 346.768ms, for 18 Pictures
+Total Detector Time for SHITOMASI = 6241.82ms, for 18 Pictures
+ 
+Average Descriptor Time for BRISK = 32.1473ms, for 18 Pictures
+Total Descriptor Time for BRISK = 578.651ms, for 18 Pictures
+ 
+Total Time = 378.915ms
+ 
+Average TTC of Lidar = 13.0401
+Total TTC of Lidar = 234.723
+
+Average TTC of Camera = 14.9401
+Total TTC of Camera = 268.921
+
+no
+VNC
+Zusatztasten
+Zwischenablage
+Zwischenablage
+*****************************************************************************************
+Detector Type = SHITOMASI and Descriptor Type = ORB with Selector Type = SEL_KNN
+*****************************************************************************************
+ 
+Display all TTC Times: 
+ Picture : 0   | TTC Lidar : 12.9722   | TTC Camera : 19.4626   | Detector Time : 0.00831213   | Descriptor Time : 0.00643295
+ Picture : 1   | TTC Lidar : 12.264   | TTC Camera : 10.7511   | Detector Time : 0.008423   | Descriptor Time : 0.00635986
+ Picture : 2   | TTC Lidar : 13.9161   | TTC Camera : 16.6755   | Detector Time : 0.00828366   | Descriptor Time : 0.00628065
+ Picture : 3   | TTC Lidar : 14.8865   | TTC Camera : 21.791   | Detector Time : 0.00844894   | Descriptor Time : 0.00650462
+ Picture : 4   | TTC Lidar : 7.41552   | TTC Camera : 39.391   | Detector Time : 0.00842362   | Descriptor Time : 0.00643871
+ Picture : 5   | TTC Lidar : 12.4213   | TTC Camera : 18.4549   | Detector Time : 0.0086677   | Descriptor Time : 0.00662956
+ Picture : 6   | TTC Lidar : 34.3404   | TTC Camera : 173.32   | Detector Time : 0.00865363   | Descriptor Time : 0.00684679
+ Picture : 7   | TTC Lidar : 9.34376   | TTC Camera : 10.9033   | Detector Time : 0.00852589   | Descriptor Time : 0.00633472
+ Picture : 8   | TTC Lidar : 18.1318   | TTC Camera : -inf   | Detector Time : 0.00862442   | Descriptor Time : 0.00647525
+ Picture : 9   | TTC Lidar : 18.0318   | TTC Camera : 34.8393   | Detector Time : 0.00863488   | Descriptor Time : 0.00633429
+ Picture : 10   | TTC Lidar : 14.9877   | TTC Camera : 8.94212   | Detector Time : 0.00876829   | Descriptor Time : 0.00656526
+ Picture : 11   | TTC Lidar : 10.1   | TTC Camera : 47.5656   | Detector Time : 0.00862286   | Descriptor Time : 0.0066434
+ Picture : 12   | TTC Lidar : 9.22307   | TTC Camera : 9.46076   | Detector Time : 0.00877231   | Descriptor Time : 0.00644331
+ Picture : 13   | TTC Lidar : 10.9678   | TTC Camera : 11.4024   | Detector Time : 0.00867176   | Descriptor Time : 0.0065028
+ Picture : 14   | TTC Lidar : 8.09422   | TTC Camera : 13.6463   | Detector Time : 0.00858869   | Descriptor Time : 0.00651304
+ Picture : 15   | TTC Lidar : 8.81392   | TTC Camera : 10.5063   | Detector Time : 0.00932784   | Descriptor Time : 0.00664365
+ Picture : 16   | TTC Lidar : 10.2926   | TTC Camera : 17.9984   | Detector Time : 0.00874599   | Descriptor Time : 0.00639597
+ Picture : 17   | TTC Lidar : 8.52001   | TTC Camera : 31.3538   | Detector Time : 0.00868364   | Descriptor Time : 0.00661049
+ 
+ Average Results 
+ 
+Average Detector Time for SHITOMASI = 8.62107ms, for 18 Pictures
+Total Detector Time for SHITOMASI = 155.179ms, for 18 Pictures
+ 
+Average Descriptor Time for ORB = 6.49752ms, for 18 Pictures
+Total Descriptor Time for ORB = 116.955ms, for 18 Pictures
+ 
+Total Time = 15.1186ms
+ 
+Average TTC of Lidar = 13.0401
+Total TTC of Lidar = 234.723
+ 
+Average TTC of Camera = -inf
+Total TTC of Camera = -inf
+
+
+VollbildEinstellungen
+Verbindung trennen
+___________________________________________________________________________________________________
+
+
+*****************************************************************************************
+Detector Type = SHITOMASI and Descriptor Type = AKAZE with Selector Type = SEL_KNN
+*****************************************************************************************
+ 
+Display all TTC Times: 
+ Picture : 0   | TTC Lidar : 12.9722   | TTC Camera : 12.3168   | Detector Time : 0.0726992   | Descriptor Time : 0.0822056
+ Picture : 1   | TTC Lidar : 12.264   | TTC Camera : 14.3973   | Detector Time : 0.0718121   | Descriptor Time : 0.0818743
+ Picture : 2   | TTC Lidar : 13.9161   | TTC Camera : 13.3458   | Detector Time : 0.072206   | Descriptor Time : 0.0833124
+ Picture : 3   | TTC Lidar : 14.8865   | TTC Camera : 14.409   | Detector Time : 0.0719012   | Descriptor Time : 0.0823033
+ Picture : 4   | TTC Lidar : 7.41552   | TTC Camera : 15.8694   | Detector Time : 0.0719326   | Descriptor Time : 0.0820778
+ Picture : 5   | TTC Lidar : 12.4213   | TTC Camera : 13.8408   | Detector Time : 0.0731587   | Descriptor Time : 0.0837797
+ Picture : 6   | TTC Lidar : 34.3404   | TTC Camera : 15.2979   | Detector Time : 0.071873   | Descriptor Time : 0.0825503
+ Picture : 7   | TTC Lidar : 9.34376   | TTC Camera : 14.3975   | Detector Time : 0.0713901   | Descriptor Time : 0.0818203
+ Picture : 8   | TTC Lidar : 18.1318   | TTC Camera : 14.7335   | Detector Time : 0.071591   | Descriptor Time : 0.082161
+ Picture : 9   | TTC Lidar : 18.0318   | TTC Camera : 11.5619   | Detector Time : 0.071824   | Descriptor Time : 0.0823583
+ Picture : 10   | TTC Lidar : 14.9877   | TTC Camera : 12.1969   | Detector Time : 0.0709292   | Descriptor Time : 0.0817598
+ Picture : 11   | TTC Lidar : 10.1   | TTC Camera : 11.1809   | Detector Time : 0.0711878   | Descriptor Time : 0.082196
+ Picture : 12   | TTC Lidar : 9.22307   | TTC Camera : 10.789   | Detector Time : 0.0726658   | Descriptor Time : 0.0826256
+ Picture : 13   | TTC Lidar : 10.9678   | TTC Camera : 10.4216   | Detector Time : 0.0725436   | Descriptor Time : 0.0827231
+ Picture : 14   | TTC Lidar : 8.09422   | TTC Camera : 10.5751   | Detector Time : 0.0712188   | Descriptor Time : 0.0821361
+ Picture : 15   | TTC Lidar : 8.81392   | TTC Camera : 10.1631   | Detector Time : 0.0724025   | Descriptor Time : 0.0841149
+ Picture : 16   | TTC Lidar : 10.2926   | TTC Camera : 9.46152   | Detector Time : 0.0724457   | Descriptor Time : 0.0824364
+ Picture : 17   | TTC Lidar : 8.52001   | TTC Camera : 9.43762   | Detector Time : 0.0718023   | Descriptor Time : 0.083086
+ 
+ Average Results 
+ 
+Average Detector Time for SHITOMASI = 71.9769ms, for 18 Pictures
+Total Detector Time for SHITOMASI = 1295.58ms, for 18 Pictures
+ 
+Average Descriptor Time for AKAZE = 82.5289ms, for 18 Pictures
+Total Descriptor Time for AKAZE = 1485.52ms, for 18 Pictures
+ 
+Total Time = 154.506ms
+ 
+Average TTC of Lidar = 13.0401
+Total TTC of Lidar = 234.723
+ 
+Average TTC of Camera = 12.4664
+Total TTC of Camera = 224.396
+
