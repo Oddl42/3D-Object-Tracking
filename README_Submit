@@ -263,7 +263,7 @@ See Picture TTC Lidar (createt with matlab)
 * Here i am struggeling.
 Wiht my code, i can' use BRIEF and FREAK Descriptors.
 Also the TTC Camera is equal to all Descriptors, for example it doesn't matter, if i use SHiTomasi or Fast Detector, the time will only change, if if change the Descriptor.
-(As you can see in the txt files)
+(As you can see in the Compare.xlsx )
 
 The ORB Descriptor is also unstable (inf Value)
 I asked a Mentor, about this Problem, but, they can't help me.
